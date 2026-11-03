@@ -320,7 +320,7 @@ private fun HomeTab(
     ) {
         item(span = { GridItemSpan(2) }) {
             Column {
-                Text("Doc Scanner", style = MaterialTheme.typography.headlineMedium, fontWeight = FontWeight.Bold)
+                Text("Docverse", style = MaterialTheme.typography.headlineMedium, fontWeight = FontWeight.Bold)
                 Text("Scan, edit and share documents. Everything stays on your phone.",
                     style = MaterialTheme.typography.bodyMedium, color = MaterialTheme.colorScheme.onSurfaceVariant)
             }
