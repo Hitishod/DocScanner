@@ -1,0 +1,195 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Docverse: free all-in-one document scanner for Android</title>
+<meta name="description" content="Docverse scans documents, converts images and PDFs, compresses, merges, signs and locks PDFs. Free, no ads, no account, works offline.">
+<link rel="icon" href="icon.svg" type="image/svg+xml">
+<style>
+:root{--p:#2D5BFF;--pd:#1F44CC;--pc:#DDE5FF;--bg:#F6F7FB;--s:#fff;--t:#161a26;--m:#59607A;--line:#D9DEEC;--ok:#00A88F}
+@media (prefers-color-scheme:dark){:root{--p:#7E9BFF;--pd:#5C7DFF;--pc:#1F3180;--bg:#0F1115;--s:#171A21;--t:#EEF0F8;--m:#AEB5CC;--line:#2C3244;--ok:#5FDCC5}}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;background:var(--bg);color:var(--t);line-height:1.55}
+a{color:var(--p)}
+.wrap{max-width:1040px;margin:0 auto;padding:0 20px}
+header{display:flex;align-items:center;justify-content:space-between;padding:18px 0}
+.brand{display:flex;align-items:center;gap:10px;font-weight:700;font-size:20px;text-decoration:none;color:var(--t)}
+.brand img{width:36px;height:36px}
+nav a{margin-left:18px;text-decoration:none;color:var(--m);font-size:15px}
+.hero{display:grid;grid-template-columns:1.1fr .9fr;gap:40px;align-items:center;padding:48px 0 56px}
+h1{font-size:clamp(32px,5vw,52px);line-height:1.1;letter-spacing:-.02em}
+h1 span{color:var(--p)}
+.lead{font-size:19px;color:var(--m);margin:18px 0 26px;max-width:34em}
+.btn{display:inline-flex;align-items:center;gap:10px;background:var(--p);color:#fff;text-decoration:none;font-weight:600;font-size:18px;padding:16px 28px;border-radius:50px;box-shadow:0 6px 18px #2D5BFF44}
+@media (prefers-color-scheme:dark){.btn{color:#0B1F66}}
+.btn:hover{background:var(--pd)}
+.btn.alt{background:transparent;color:var(--p);box-shadow:none;border:2px solid var(--p);margin:0}
+.btn.alt:hover{background:#2D5BFF14}
+.btns{display:flex;flex-wrap:wrap;gap:12px}
+.sub{font-size:13px;color:var(--m);margin-top:12px}
+.pills{display:flex;flex-wrap:wrap;gap:8px;margin-top:22px}
+.pills span{background:var(--s);border:1px solid var(--line);border-radius:50px;padding:5px 13px;font-size:13px;color:var(--m)}
+.visual{display:flex;justify-content:center}
+.card-phone{width:270px;background:var(--s);border:7px solid #15171d;border-radius:34px;padding:16px 14px;box-shadow:0 20px 50px #0003}
+.card-phone h3{font-size:20px;margin-bottom:10px}
+.mini{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.mini div{background:var(--bg);border-radius:12px;height:116px;padding:12px}
+.mini i{display:block;height:5px;background:var(--line);border-radius:3px;margin-bottom:6px}
+.mini i.h{height:9px;width:50%;background:var(--p);opacity:.6}
+.scanbtn{margin-top:14px;background:var(--p);color:#fff;text-align:center;border-radius:14px;padding:11px;font-weight:600}
+section{padding:46px 0}
+h2{font-size:clamp(26px,3.6vw,36px);letter-spacing:-.01em;margin-bottom:8px}
+.sec-sub{color:var(--m);margin-bottom:28px;max-width:40em}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:16px}
+.f{background:var(--s);border:1px solid var(--line);border-radius:18px;padding:20px}
+.f b{display:block;font-size:17px;margin:8px 0 4px}.f p{color:var(--m);font-size:14.5px}
+.ic{width:42px;height:42px;border-radius:13px;background:var(--pc);display:flex;align-items:center;justify-content:center;font-size:21px}
+ol.steps{list-style:none;counter-reset:s;display:grid;gap:12px;max-width:640px}
+ol.steps li{counter-increment:s;background:var(--s);border:1px solid var(--line);border-radius:16px;padding:14px 16px 14px 58px;position:relative}
+ol.steps li:before{content:counter(s);position:absolute;left:14px;top:12px;width:30px;height:30px;border-radius:50%;background:var(--p);color:#fff;font-weight:700;display:flex;align-items:center;justify-content:center}
+@media (prefers-color-scheme:dark){ol.steps li:before{color:#0B1F66}}
+details{background:var(--s);border:1px solid var(--line);border-radius:14px;padding:14px 16px;margin-bottom:10px}
+summary{cursor:pointer;font-weight:600}details p{color:var(--m);margin-top:8px;font-size:15px}
+.cta{text-align:center;background:var(--s);border:1px solid var(--line);border-radius:26px;padding:44px 20px;margin:20px 0 40px}
+footer{border-top:1px solid var(--line);padding:26px 0 40px;color:var(--m);font-size:14px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
+.desk{display:none;margin-top:20px;background:var(--s);border:1px solid var(--line);border-radius:18px;padding:16px;max-width:420px;gap:16px;align-items:center}
+.desk.show{display:flex}
+#qr{background:#fff;padding:8px;border-radius:12px;flex:none;min-width:116px;min-height:116px}
+.desk p{font-size:14.5px;color:var(--m)}.desk b{color:var(--t)}
+.desk button{margin-top:8px;font:inherit;font-size:14px;font-weight:600;color:var(--p);background:none;border:1px solid var(--line);border-radius:50px;padding:6px 14px;cursor:pointer}
+.note{display:none;margin-top:14px;background:var(--pc);border-radius:12px;padding:10px 14px;font-size:14.5px;max-width:420px}
+.note.show{display:block}
+@media (max-width:820px){.hero{grid-template-columns:1fr;padding-top:24px}.visual{order:-1}nav{display:none}}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header>
+  <a class="brand" href="app/"><img src="icon.svg" alt="">Docverse</a>
+  <nav><a href="#features">Features</a><a href="#install">How to install</a><a href="#faq">FAQ</a><a href="privacy.html">Privacy</a></nav>
+</header>
+
+<div class="hero">
+  <div>
+    <h1>Your whole document toolbox, <span>in one app.</span></h1>
+    <p class="lead">Scan, edit, convert, compress, sign and lock your documents. Free, no ads, no account, and it works offline.</p>
+    <div class="btns"><a class="btn" id="dl" href="#">⬇ Download for Android</a><a class="btn alt" href="app/">🌐 Open the web version</a></div>
+    <p class="sub" id="dlinfo">Free APK for Android 7.0 and newer. The web version needs no install.</p>
+    <div class="desk" id="desk">
+      <div id="qr" aria-label="QR code for this page"></div>
+      <div><p><b>Want it on your phone?</b> Point your phone's camera at this code to open this page there, then get the Android app.</p>
+      <button id="copy" type="button">Copy page link</button></div>
+    </div>
+    <div class="note" id="ios">Docverse is made for Android phones. It is not available for iPhone or iPad.</div>
+    <div class="pills"><span>No ads</span><span>No account</span><span>Works offline</span><span>Your files stay on your phone</span></div>
+  </div>
+  <div class="visual" aria-hidden="true">
+    <div class="card-phone">
+      <h3>Docverse</h3>
+      <div class="mini">
+        <div><i class="h"></i><i></i><i></i><i style="width:60%"></i></div>
+        <div><i class="h"></i><i></i><i style="width:70%"></i></div>
+      </div>
+      <div class="scanbtn">📷 Scan</div>
+    </div>
+  </div>
+</div>
+
+<section id="features">
+  <h2>Everything you need for paperwork</h2>
+  <p class="sec-sub">Instead of installing five apps, keep one.</p>
+  <div class="grid">
+    <div class="f"><div class="ic">📄</div><b>Smart scanning</b><p>Auto edge detection, auto capture and crop. Modes for documents, ID cards, books and whiteboards.</p></div>
+    <div class="f"><div class="ic">🎨</div><b>Page editor</b><p>Filters, brightness, contrast, crop, rotate, reorder and delete pages. Edits never damage the original.</p></div>
+    <div class="f"><div class="ic">📤</div><b>Many export formats</b><p>PDF, JPG, PNG, TXT and Word. Pick quality, page size, or add a password.</p></div>
+    <div class="f"><div class="ic">🔁</div><b>Convert</b><p>Images to PDF and PDF to images, in one tap.</p></div>
+    <div class="f"><div class="ic">📏</div><b>Make it smaller or bigger</b><p>Resize photos by percent, pixels or target KB. Compress PDFs to a size you choose.</p></div>
+    <div class="f"><div class="ic">🧩</div><b>Edit PDFs</b><p>Merge, split, rotate, reorder, add watermarks and page numbers.</p></div>
+    <div class="f"><div class="ic">✍️</div><b>Sign and stamp</b><p>Draw your signature or add any picture to a PDF, and drag it into place.</p></div>
+    <div class="f"><div class="ic">🔒</div><b>Lock and unlock</b><p>Protect a PDF with a password, or remove the password from one you own.</p></div>
+    <div class="f"><div class="ic">🔎</div><b>Text from images</b><p>Copy text from photos and PDFs on your phone. English and Hindi.</p></div>
+    <div class="f"><div class="ic">▦</div><b>QR codes</b><p>Scan any QR code or barcode, and create your own.</p></div>
+  </div>
+</section>
+
+<section id="install">
+  <h2>How to install</h2>
+  <p class="sec-sub">Docverse is not on the Play Store, so you install the file yourself. It takes a minute.</p>
+  <ol class="steps">
+    <li><b>Download the APK</b> with the button above, using your phone.</li>
+    <li><b>Open the file</b> from your notifications or the Downloads folder.</li>
+    <li>If Android says it can't install from this source, tap <b>Settings</b> and turn on <b>Allow from this source</b>, then go back.</li>
+    <li>Tap <b>Install</b>. If Play Protect shows a warning, tap <b>More details</b>, then <b>Install anyway</b>.</li>
+    <li>Open <b>Docverse</b> and tap <b>Scan</b>.</li>
+  </ol>
+</section>
+
+<section id="faq">
+  <h2>Questions</h2>
+  <details><summary>Is it really free?</summary><p>Yes. There are no ads, no subscription and no account.</p></details>
+  <details><summary>Why does Android show a warning?</summary><p>Android warns about every app installed from outside the Play Store. This is normal for apps shared as an APK file.</p></details>
+  <details><summary>Does it need the internet?</summary><p>Scanning, editing, conversion and text recognition run on your phone. The first time you use the scanner or text recognition, Google Play services may download a small component, so an internet connection helps once.</p></details>
+  <details><summary>Which phones does it work on?</summary><p>Android 7.0 or newer with Google Play services. It is not meant for devices without Google services, such as Amazon Fire tablets.</p></details>
+  <details><summary>Where are my scans stored?</summary><p>Only inside the app on your phone. You choose when to share or save a copy to Downloads. See the <a href="privacy.html">privacy page</a>.</p></details>
+</section>
+
+<div class="cta">
+  <h2>Get Docverse</h2>
+  <p class="sec-sub" style="margin:0 auto 20px">One app for all your documents.</p>
+  <a class="btn" id="dl2" href="#">⬇ Download for Android</a>
+</div>
+
+<footer>
+  <span>© <span id="yr"></span> Docverse</span>
+  <span><a href="privacy.html">Privacy</a></span>
+</footer>
+</div>
+
+<script>
+// Works on GitHub Pages (https://USER.github.io/REPO/): finds the user and repo from the address,
+// and points the buttons at the newest release's Docverse.apk.
+(function(){
+  document.getElementById('yr').textContent = new Date().getFullYear();
+  var host = location.hostname, parts = location.pathname.split('/').filter(Boolean);
+  var user = host.endsWith('.github.io') ? host.split('.')[0] : '';
+  var repo = parts[0] && !/\.html$/.test(parts[0]) ? parts[0] : (user ? user + '.github.io' : '');
+  var url = user ? 'https://github.com/' + user + '/' + repo + '/releases/latest/download/Docverse.apk' : '#';
+  document.getElementById('dl').href = url;
+  document.getElementById('dl2').href = url;
+  var ua = navigator.userAgent || '';
+  var isAndroid = /Android/i.test(ua), isApple = /iPhone|iPad|iPod/i.test(ua);
+  if (!isAndroid) {
+    document.getElementById('dl').textContent = '⬇ Download APK (Android)';
+    document.getElementById('dl2').textContent = '⬇ Download APK (Android)';
+  }
+  if (isApple) document.getElementById('ios').classList.add('show');
+  else if (!isAndroid) {
+    var desk = document.getElementById('desk'); desk.classList.add('show');
+    var pageUrl = location.href.split('#')[0];
+    var box = document.getElementById('qr');
+    var s2 = document.createElement('script');
+    s2.src = 'https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js';
+    s2.onload = function(){ new QRCode(box, {text: pageUrl, width: 116, height: 116}); };
+    s2.onerror = function(){ box.style.display = 'none'; };
+    document.head.appendChild(s2);
+    document.getElementById('copy').onclick = function(){
+      var b = this;
+      (navigator.clipboard ? navigator.clipboard.writeText(pageUrl) : Promise.reject()).then(
+        function(){ b.textContent = 'Link copied'; }, function(){ b.textContent = pageUrl; });
+    };
+  }
+  if (!user) return;
+  fetch('https://api.github.com/repos/' + user + '/' + repo + '/releases/latest')
+    .then(function(r){ return r.ok ? r.json() : null; })
+    .then(function(rel){
+      if (!rel) return;
+      var a = (rel.assets || []).filter(function(x){ return x.name === 'Docverse.apk'; })[0];
+      var mb = a ? ' · ' + (a.size / 1048576).toFixed(1) + ' MB' : '';
+      document.getElementById('dlinfo').textContent = 'Version ' + (rel.tag_name || '') + mb + ' · Android 7.0 and newer';
+    }).catch(function(){});
+})();
+</script>
+</body>
+</html>
