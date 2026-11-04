@@ -1,0 +1,20 @@
+Docverse - Copyright (c) 2026 hitishod. All rights reserved.
+
+This source code and the Docverse app and website are provided for viewing
+only. No permission is granted to copy, modify, redistribute, republish,
+rebrand, sell or use this code, in whole or in part, in another app or
+website, without written permission from the copyright owner.
+
+You may use the Docverse app and the Docverse website for your own personal
+or business documents, free of charge.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND.
+
+Third-party components
+----------------------
+Docverse includes open-source libraries that keep their own licences. This
+licence does not apply to them:
+- pdf-lib (MIT), pdf.js (Apache-2.0), JSZip (MIT), Tesseract.js (Apache-2.0),
+  jsQR (Apache-2.0), qrcode-generator (MIT)
+- Android: Jetpack Compose, Coil, ZXing and PDFBox-Android (Apache-2.0),
+  Google ML Kit (Google's own terms)
